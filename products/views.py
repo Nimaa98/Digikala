@@ -1,6 +1,6 @@
 from django.shortcuts import render , HttpResponse , get_object_or_404
 from products.models import Category,Product
-from django.template.loader import get_template
+from django.template.loader import get_template , render_to_string
 # Create your views here.
 
 
@@ -43,14 +43,17 @@ def index(request):
 
 
 def product_view(request,product_id):
-    #try:
-    #p = Product.objects.get(id = product_id)
-    p = get_object_or_404(Product,id = product_id)
-    template = get_template('products/product.html')
-    return HttpResponse(template.render(context={"product": p} , request = request))
 
-    #except Product.DoesNotExist:
-        #return HttpResponse('404 Product not found')
+    p = get_object_or_404(Product,id = product_id)
+    context = {'product': p}
+    return render(
+        template_name ='products/product.html',
+        request=request,
+        context=context
+    )
+
+
+
 
 
 
