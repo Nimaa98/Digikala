@@ -20,6 +20,11 @@
             {% endfor %}
         </ui>
     </div>
+    <div>
+        {% for image in product.image_set.all %}
+        <img src = "{{ image.image.url }}" alt="{{ image.alt }}" />
+        {% endfor %}
+    </div>
 </body>
 </html>
 

@@ -72,7 +72,7 @@ class Image(models.Model):
                                 on_delete=models.CASCADE)
 
 
-    image = models.ImageField(_("Image"), upload_to= 'products',)
+    image = models.ImageField(_("Image"), upload_to= 'products/')
     is_default = models.BooleanField(_("Is Default Image?"), default = False)
 
 
