@@ -5,6 +5,11 @@ from .models import Product,ProductPrice,ProductOption,Question,Answer,Image,Com
 
 # Register your models here.
 
+class ImageInline(admin.TabularInline):
+    model = Image
+    #extra = 1
+
+
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
@@ -12,6 +17,8 @@ class ProductAdmin(admin.ModelAdmin):
     list_filter = ['category']
     search_fields = ['en_name', 'name']
 
+    inlines = [ImageInline]
+    #admin.site.register(Image)
 
 
 @admin.register(Category)
@@ -34,9 +41,9 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 
-@admin.register(Image)
-class ImageAdmin(admin.ModelAdmin):
-    pass
+# @admin.register(Image)
+# class ImageAdmin(admin.ModelAdmin):
+#     pass
 
 
 
