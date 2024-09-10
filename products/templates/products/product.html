@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  dir = 'rtl'>
 <head>
     <meta charset="UTF-8">
     <title> فروشگاه اینترنتی دیجیکالا {{ product.name }}</title>
@@ -8,6 +8,18 @@
     <h1>{{ product.name }}</h1>
     <p>{{ product.en_name }}</p>
     <p>{{ product.description }}</p>
+    <hr />
+    <div>
+        <ui>
+            {% for option in product.product_options.all %}
+            <li style="display:flex">
+                <div>{{ option.name }}</div>
+                :
+                <div>{{ option.value }}</div>
+            </li>
+            {% endfor %}
+        </ui>
+    </div>
 </body>
 </html>
 
