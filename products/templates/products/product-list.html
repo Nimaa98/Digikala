@@ -1,6 +1,10 @@
 {% extends 'base/base.html' %} {% block title %} لیست کالاها {% endblock title %}
 
 {% block main %}
+<form action="." method="get">
+    <input type="text" name="q">
+    <input type="submit" value="search">
+</form>
 
 <ul>
     {% for p in products %}
