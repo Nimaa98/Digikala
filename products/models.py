@@ -153,8 +153,11 @@ class ProductOption(models.Model):
 class ProductPrice(models.Model):
 
     product = models.ForeignKey('Product',
-                             verbose_name = 'Product',
-                             on_delete=models.CASCADE)
+                                verbose_name = _('Product'),
+                                on_delete = models.CASCADE
+                                )
+
+
 
     price = models.PositiveIntegerField(_("Price"))
 

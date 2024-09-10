@@ -7,7 +7,17 @@ from .models import Product,ProductPrice,ProductOption,Question,Answer,Image,Com
 
 class ImageInline(admin.TabularInline):
     model = Image
-    #extra = 1
+    extra = 1
+
+
+class ProductOptionInline(admin.TabularInline):
+    model = ProductOption
+    extra = 1
+
+
+class ProductPriceInline(admin.TabularInline):
+    model = ProductPrice
+    extra = 1
 
 
 
@@ -17,8 +27,8 @@ class ProductAdmin(admin.ModelAdmin):
     list_filter = ['category']
     search_fields = ['en_name', 'name']
 
-    inlines = [ImageInline]
-    #admin.site.register(Image)
+    inlines = [ImageInline,ProductOptionInline,ProductPriceInline]
+    ##admin.site.register(Image)
 
 
 @admin.register(Category)
@@ -36,6 +46,15 @@ class CategoryAdmin(admin.ModelAdmin):
             'fields': ('icon', 'image'),
         }),
     )
+
+
+
+@admin.register(Image)
+class ImageAdmin(admin.ModelAdmin):
+    pass
+
+
+
 
 
 
