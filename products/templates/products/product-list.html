@@ -1,13 +1,23 @@
+{% extends 'base/base.html' %} {% block title %} لیست کالاها {% endblock title %}
 
-<!DOCTYPE html>
-{% load static %}
-<html lang="en"  dir = 'rtl'>
-<head>
-    <meta charset="UTF-8">
-    <title> فروشگاه اینترنتی دیجیکالا</title>
-    <link rel = "stylesheet"  href="{% static 'styles/style.css' %}" />
-</head>
-<body>
+{% block main %}
 
-</body>
-</html>
+<ul>
+    {% for p in products %}
+    <li>
+        <a href = "/products/{{p.id}}/">
+            <div>
+                <h2>{{p.name}}</h2>
+            </div>
+
+        </a>
+
+
+    </li>
+
+    {% endfor %}
+</ul>
+
+
+{% endblock main %}
+

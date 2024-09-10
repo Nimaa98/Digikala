@@ -1,3 +1,5 @@
+{% extends 'base/base.html' %} {% block title %}
+{{product.name}} {% endblock title %} {% block main %}
 
     <h1>{{ product.name }}</h1>
     <p>{{ product.en_name }}</p>
@@ -19,4 +21,12 @@
         <img src = "{{ image.image.url }}" alt="{{ image.alt }}" />
         {% endfor %}
     </div>
+
+
+{% endblock main %}
+
+
+
+
+
 
